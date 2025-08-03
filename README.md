@@ -5,6 +5,8 @@
 This repository contains a modified version of the original CycleGAN implementation that replaces the traditional convolutional encoder with a Vision Transformer (ViT) based encoder.
 This modification was developed as part of an Image and Video Computing class project during the Spring 2025 semester. It was carried out entirely on Boston University's Shared Computing Cluster (SCC). All model training and experimentation were performed on SCC resources. **Please note that the contributions reflected on GitHub do not fully represent the collaborative workflow and computational environment used for this project.**
 
+You can find our final project report, which details our methodology, experimental results, and conclusions.
+
 ### Key Modifications
 
 - **ViT-Based Encoder**: Replaced the original convolutional encoder with a Vision Transformer encoder using the `vit_base_patch16_224` model from the `timm` library
