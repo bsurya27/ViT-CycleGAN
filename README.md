@@ -1,3 +1,47 @@
+# ViT-CycleGAN: Vision Transformer Enhanced CycleGAN
+
+## Project Overview
+
+This repository contains a modified version of the original CycleGAN implementation that replaces the traditional convolutional encoder with a Vision Transformer (ViT) based encoder.
+This modification was developed as part of an Image and Video Computing class project during the Spring 2025 semester. It was carried out entirely on Boston University's Shared Computing Cluster (SCC). All model training and experimentation were performed on SCC resources. **Please note that the contributions reflected on GitHub do not fully represent the collaborative workflow and computational environment used for this project.**
+
+### Key Modifications
+
+- **ViT-Based Encoder**: Replaced the original convolutional encoder with a Vision Transformer encoder using the `vit_base_patch16_224` model from the `timm` library
+- **UNet Decoder**: Implemented a custom UNet-style decoder that works with the ViT encoder features
+- **Skip Connections**: Added optional skip connections between encoder and decoder for better feature preservation
+- **Evaluation Metrics**: Added comprehensive evaluation scripts for PSNR, SSIM, and FID metrics
+- **Result Management**: Implemented utilities for organizing and analyzing generated results
+
+### Architecture Details
+
+The `ViTUNetGenerator` consists of:
+- **ViT Encoder**: Uses a pre-trained Vision Transformer with patch size 16x16 and embedding dimension 768
+- **Decoder**: Custom UNet-style decoder with transposed convolutions and skip connections
+- **Skip Connections**: Optional feature fusion between encoder input and decoder output
+
+### Usage
+
+To use the ViT-based generator, specify `--netG vit_unet` when training:
+
+```bash
+python train.py --dataroot ./datasets/maps --name maps_vit_cyclegan --model cycle_gan --netG vit_unet
+```
+
+### Evaluation
+
+The project includes evaluation scripts:
+- `merics.py`: Computes PSNR, SSIM, and FID scores for comparing results
+- `result_file_handling.py`: Organizes generated images for evaluation
+- `dataset.ipynb`: Dataset preparation and analysis notebook
+
+### Contributors
+
+- [Surya Boddu](https://github.com/bsurya27)
+- [Yashwanth Samudrala](https://github.com/yashwanth0512)
+- [Yukkta Seelam]
+---
+
 <img src='imgs/horse2zebra.gif' align="right" width=384>
 
 <br><br><br>
